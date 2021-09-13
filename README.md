@@ -7,7 +7,7 @@ Repository for keeping track of the quaterly updates related to Grin Community F
 * **[Cryptotools library](https://github.com/mcdallas/cryptotools)**
   * ```pip install git+https://github.com/mcdallas/cryptotools.git@master#egg=cryptotool``` 
 
-**note** running this script requires the use of `Python 3.X` and the installation of the **[Cryptotools library](https://github.com/mcdallas/cryptotools)**:
+**note** running this script requires the use of `Python 3.6` and the installation of the **[Cryptotools library](https://github.com/mcdallas/cryptotools)**:
 
  #### run security proof script with the security proof file as input, example:
 `grin_CC_security_proofs_0.4.py 2021-08-01_security_proof_CC_.txt`
