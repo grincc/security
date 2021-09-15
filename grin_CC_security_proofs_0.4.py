@@ -17,15 +17,31 @@ except:
 	print("In order to verify the security proofs you need to install the Cryptotool library (requires python 3.X) using the following command: ")
 	print("pip install git+https://github.com/mcdallas/cryptotools.git@master#egg=cryptotools")
 
-if len(sys.argv) > 2:
-	print("This scripts takes only one argument, a file with signatures and transaction ID preced by '>'")
-else:
+
+	
+if len(list(sys.argv)) <2:
+	print('please run this script with either a file as input, or by piping information to it, Examples:')
+	print('python grin_CC_security_proofs_0.4.py 2021-08-01_security_proof_CC_.txt')
+	print('OR')
+	print('cat 2021-08-01_security_proof_CC_.txt |grin_CC_security_proofs_0.4.py')
+	exit
+	
+if len(list(sys.argv)) == 2:
+	lines =[]
 	file_name = sys.argv[1]
 	f1 =  open(file_name,'r+')
+	for line in f1:
+		line = line.strip()
+		lines.append(line)
 
+else:
+	lines =[]
+	for line in sys.stdin:
+		lines.append(line)
+	
 transaction = False
 signatures = []
-for line in f1:
+for line in lines:
 	line = line.strip()
 	## skip empty lines
 	if len(line) == 0:
@@ -102,4 +118,3 @@ else:
 ## Print summary of results			
 print('Done, {} out of {} signatures in security proof are proven to be valid'.format(valid_signature_count,len(signatures)))
 ##############################################################################
-
